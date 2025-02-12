@@ -162,7 +162,6 @@ jsonMan.greet = function(){
 jsonMan.name= "Vijay"
 
 console.log(man)
-console.log(jsonMan)
 
 
 
