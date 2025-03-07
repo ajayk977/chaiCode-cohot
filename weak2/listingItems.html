@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+
+  <body>
+    <input id="input-value" placeholder="add items" type="text" />
+    <button id="add-btn">Add</button>
+    <h2>Destroy All items</h2>
+    <h2 id="all-del">Add items</h2>
+    <ul id="myList"></ul>
+
+    <script>
+      const addList = document.getElementById("add-btn");
+      const inputValue = document.getElementById("input-value");
+      const ul = document.getElementById("myList");
+      const allDelete = document.getElementById("all-del");
+
+      const allDelBtn = document.createElement("button");
+      allDelete.appendChild(allDelBtn);
+
+      allDelBtn.innerText="Delete All"
+
+      addList.addEventListener("click", () => {
+        const inputContent = inputValue.value;
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+
+        btn.innerText = "X";
+        li.innerText = inputContent;
+        ul.appendChild(li);
+        li.appendChild(btn);
+        inputValue.value = "";
+
+        btn.addEventListener("click", () => {
+          li.remove();
+        });
+
+        allDelBtn.addEventListener("click", () => {
+          ul.remove();
+        });
+      });
+    </script>
+  </body>
+</html>
